@@ -1,0 +1,140 @@
+# (Recipe-Management-and-Meal-Planning)
+
+#### Date, 2024/09/19
+
+#### By *salyviah kamau*
+
+Recipe Management and Meal Planning
+Description
+
+The Recipe Management and Meal Planning CLI application is designed to help users efficiently organize recipes, plan meals for the week, and generate grocery shopping lists. It simplifies meal planning by storing recipes, associating ingredients, and creating meal plans for the week, all while keeping track of the required shopping items. The application is perfect for busy individuals or families who want to streamline their meal planning and grocery shopping process.
+Features
+
+    Add Recipes: Users can add new recipes with a name, ingredients, cooking time, and instructions.
+    Store Ingredients: Each ingredient is associated with a recipe and includes its name, quantity, and unit (e.g., grams, cups).
+    Create Meal Plans: Plan meals for the week by assigning recipes to specific dates and meal types (e.g., breakfast, lunch, dinner).
+    Generate Shopping Lists: Automatically generate a shopping list based on the planned meals for the week.
+    Easy Management: Update or delete recipes, meal plans, and ingredients as needed.
+
+Real-World Application
+
+This app can be used by busy individuals, families, or anyone who wants to:
+
+    Organize their recipes efficiently.
+    Plan weekly meals ahead of time.
+    Generate shopping lists automatically based on meal plans.
+
+Installation Instructions
+
+    Clone the repository to your local machine:
+
+    bash
+
+git clone https://github.com/salyviah/recipe-management-meal-planning.git
+
+Navigate to the project directory:
+
+bash
+
+cd recipe-management-meal-planning
+
+Install the necessary dependencies:
+
+bash
+
+pip install -r requirements.txt
+
+Set up the database:
+
+    Create the database schema using the provided SQL script:
+
+    bash
+
+    python setup_database.py
+
+    Ensure the database is properly initialized with tables for recipes, ingredients, and meal plans.
+
+Run the application:
+
+bash
+
+    python app.py
+
+Database Schema
+
+The application uses a relational database with the following schema:
+Recipes Table
+Column	Type	Description
+id	INT	Primary key (auto-incremented)
+name	TEXT	Name of the recipe
+cooking_time	INT	Time required to cook (in minutes)
+instructions	TEXT	Cooking instructions for the recipe
+Ingredients Table
+Column	Type	Description
+id	INT	Primary key (auto-incremented)
+recipe_id	INT	Foreign key referencing Recipes table
+name	TEXT	Name of the ingredient
+quantity	DECIMAL	Quantity of the ingredient
+unit	TEXT	Unit of the ingredient (e.g., grams)
+Meal Plans Table
+Column	Type	Description
+id	INT	Primary key (auto-incremented)
+recipe_id	INT	Foreign key referencing Recipes table
+date	DATE	The date of the meal
+meal_type	TEXT	Meal type (e.g., breakfast, lunch)
+Technologies Used
+
+    Python: For core application logic.
+    SQLite/PostgreSQL: Relational database to store recipes, ingredients, and meal plans.
+    psycopg2: PostgreSQL adapter for Python (if using PostgreSQL).
+    SQLAlchemy: ORM (optional) to manage database models and queries.
+
+Usage
+1. Adding a Recipe
+
+You can add new recipes to the system, specifying the name, ingredients, cooking time, and instructions:
+
+bash
+
+> Add Recipe
+Enter recipe name: Spaghetti Bolognese
+Enter cooking time (minutes): 45
+Enter ingredient name: Spaghetti
+Enter quantity: 200
+Enter unit: grams
+Repeat for all ingredients...
+Enter cooking instructions: Cook the pasta, prepare the sauce, etc.
+
+2. Creating a Weekly Meal Plan
+
+Users can plan meals for the week by selecting recipes for specific dates and meal times:
+
+bash
+
+> Create Meal Plan
+Enter the recipe ID: 1 (Spaghetti Bolognese)
+Enter the date (YYYY-MM-DD): 2024-09-19
+Enter the meal type (breakfast, lunch, dinner): Dinner
+
+3. Generating a Shopping List
+
+Based on the meal plan, the app generates a shopping list with all the necessary ingredients:
+
+bash
+
+> Generate Shopping List
+Shopping list:
+- Spaghetti: 200 grams
+- Ground beef: 500 grams
+- Tomatoes: 3 units
+
+Support
+
+For any questions or support requests, please reach out to:
+
+    Email: salyviah@gmail.com
+    github.com\salyviah
+
+License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
